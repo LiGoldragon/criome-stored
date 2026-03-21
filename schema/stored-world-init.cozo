@@ -1,0 +1,37 @@
+#── Blob metadata index ─────────────────────────────────────────────
+#THE canonical index for the entire content-addressed store.
+#Blobs live on disk at the store path, addressed by blake3 hash.
+#This relation is the only way to discover what is in the store.
+
+:create blob {
+  hash: String =>
+  size: Int,
+  compressed_size: Int,
+  media_type: String,
+  origin: String,
+  origin_ref: String,
+  phase: String,
+  dignity: String
+}
+
+#── Ingestion log ──────────────────────────────────────────────────
+#Every file that enters through FUSE, socket, or MCP is logged here.
+
+:create ingestion {
+  id: String =>
+  source_path: String,
+  hash: String,
+  media_type: String,
+  origin: String,
+  origin_ref: String,
+  ts: String,
+  phase: String,
+  dignity: String
+}
+
+#── Blob tags ──────────────────────────────────────────────────────
+
+:create blob_tag {
+  hash: String,
+  tag: String
+}

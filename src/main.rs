@@ -29,10 +29,6 @@ const ETERNAL_RELATIONS: &[&str] = &[
     "Dignity", "Phase",
 ];
 
-/// Contract relations.
-const CONTRACT_RELATIONS: &[&str] = &[
-    "store_request", "store_response",
-];
 
 /// Run the full genesis sequence for the store agent.
 fn genesis(db: &criome_cozo::CriomeDb) -> Result<(), Box<dyn std::error::Error>> {
@@ -50,7 +46,7 @@ fn genesis(db: &criome_cozo::CriomeDb) -> Result<(), Box<dyn std::error::Error>>
     tracing::info!("store domain relations created");
 
     // 4. Finalize
-    boot::finalize_genesis(db, ETERNAL_RELATIONS, CONTRACT_RELATIONS)?;
+    boot::finalize_genesis(db, ETERNAL_RELATIONS)?;
 
     Ok(())
 }

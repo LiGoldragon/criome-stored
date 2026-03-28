@@ -1,6 +1,18 @@
+# Rust
 /target
 
-# Emacs
+# Nix
+.direnv/
+result
+
+# Editor tempfiles
 \#*\#
-*~
 .\#*
+*~
+.*.swp
+
+# MCP config (local)
+.mcp.json
+
+# Databases (local)
+*.db
